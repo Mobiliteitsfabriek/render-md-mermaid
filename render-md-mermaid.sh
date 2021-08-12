@@ -57,7 +57,7 @@ do
         if [[ ! "$mermaid_file" =~ ^.*/.* ]]; then
             mermaid_file="./$mermaid_file"
         fi
-        mkdir -p -- "${mermaid_file%/*}"
+        mkdir -p -- "$(dirname $markdown_input)/${mermaid_file%/*}"
     else
         if [[ ! "$mermaid_file" = "" ]]; then
             echo "$line" >> "$mermaid_file"
