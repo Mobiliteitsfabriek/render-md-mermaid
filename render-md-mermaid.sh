@@ -66,7 +66,7 @@ do
 done;
 for mermaid_img in $(find . -name "*.mermaid" | sed -E 's/((.*).mermaid)/\2|\1/')
 do
-    image_file="${dirnam $markdown_input}${mermaid_img%|*}"
+    image_file="${dirname $markdown_input}${mermaid_img%|*}"
     mermaid_file=${mermaid_img#*|}
     if [[ "$2" == "in-container" ]]; then
         /home/mermaidcli/node_modules/.bin/mmdc -p /puppeteer-config.json -o "$image_file" -i "$mermaid_file" -t neutral -C ".render-md-mermaid.css" -c ".render-md-mermaid-config.json" -s 4
